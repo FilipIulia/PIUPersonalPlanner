@@ -1,0 +1,22 @@
+/* Exemplu de reguli CSS */
+.text-field {
+    -fx-background-color: lightgray;
+    -fx-font-size: 14px;
+}
+
+.buttonLogin {
+    -fx-background-color: #56ccc1;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-max-width: 200px;
+    -fx-max-height: 50px;
+}
+
+.buttonRegister {
+    -fx-background-color: #cc567f;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-max-width: 200px;
+    -fx-max-height: 50px;
+
+}
