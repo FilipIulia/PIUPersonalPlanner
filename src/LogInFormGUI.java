@@ -1,56 +1,56 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 
-public class LogInFormGUI extends JFrame {
-    private JTextField usernameField;
-    private JPasswordField passwordField;
+public class LogInFormGUI {
+    private static TextField usernameField;
+    private static PasswordField passwordField;
 
-    public LogInFormGUI(JFrame receivedFrame) {
-        setTitle("Autentificare");
-        setSize(300, 150);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+    private static Circle photoCircle;
 
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(3, 2));
+    public static Scene createLogInScene(Stage primaryStage) {
+        primaryStage.setTitle("Logare");
 
-        JLabel usernameLabel = new JLabel("Utilizator:");
-        JLabel passwordLabel = new JLabel("Parolă:");
-        usernameField = new JTextField(20);
-        passwordField = new JPasswordField(20);
+        VBox root = new VBox();
+        root.setSpacing(10);
+        root.setPadding(new Insets(10));
+        root.setAlignment(Pos.CENTER);
 
-        JButton loginButton = new JButton("Log in");
-        loginButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String username = usernameField.getText();
-                String password = new String(passwordField.getPassword());
+        Label usernameLabel = new Label("Utilizator");
+        Label passwordLabel = new Label("Parolă");
 
-                //date hardcodate momentan
-                if (username.equals("utilizator") && password.equals("parola")) {
+        passwordField = new PasswordField();
+        usernameField = new TextField();
+        usernameField.getStyleClass().add("text-field");
+        passwordField.getStyleClass().add("text-field");
 
-                    //JOptionPane.showMessageDialog(LoginForm.this, "Autentificare reușită!");
-                    DashboardGUI Obj = new DashboardGUI();
-                    receivedFrame.setVisible(false);
-                    Obj.setVisible(true);
-                } else {
-                    JOptionPane.showMessageDialog(LogInFormGUI.this, "Autentificare eșuată. Verificați utilizatorul și parola.");
-                }
-            }
-        });
+        Button registerButton = new Button("Înregistrează-te");
+        registerButton.getStyleClass().add("buttonRegister");
+        Button loginButton = new Button("Autentifică-te");
+        loginButton.getStyleClass().add("buttonLogin");
+        Separator separator = new Separator();
+        GridPane grid = new GridPane();
+        grid.setHgap(10);
+        grid.setVgap(10);
+        grid.setPadding(new Insets(10));
+        grid.setAlignment(Pos.CENTER);
+        grid.add(usernameLabel, 0, 2);
+        grid.add(usernameField,1,2);
+        grid.add(passwordLabel, 0, 4);
+        grid.add(passwordField, 1, 4);
+        grid.add(loginButton,1, 6 );
+        grid.add(separator, 1, 7);
+        grid.add(registerButton, 1, 8);
 
-        panel.add(usernameLabel);
-        panel.add(usernameField);
-        panel.add(passwordLabel);
-        panel.add(passwordField);
-        panel.add(new JLabel()); // Spațiu gol
-        panel.add(loginButton);
+        root.getChildren().add(grid);
 
-        add(panel);
-
-        setVisible(true);
+        Scene scene = new Scene(root, 1000, 700);
+        scene.getStylesheets().add("styles.css");
+        return scene;
     }
-
 }
