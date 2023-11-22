@@ -1,6 +1,8 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import view.LogInFormGUI;
+import view.RegisterFormGUI;
 
 public class GUI extends Application {
     @Override

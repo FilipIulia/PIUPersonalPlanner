@@ -8,7 +8,7 @@
     -fx-background-color: #56ccc1;
     -fx-text-fill: white;
     -fx-font-size: 14px;
-    -fx-max-width: 200px;
+    -fx-max-width: 300px;
     -fx-max-height: 50px;
 }
 
@@ -16,7 +16,32 @@
     -fx-background-color: #cc567f;
     -fx-text-fill: white;
     -fx-font-size: 14px;
-    -fx-max-width: 200px;
+    -fx-max-width: 300px;
+    -fx-min-width: 300px;
     -fx-max-height: 50px;
 
 }
+.addPhotoButton {
+    -fx-background-color: #b3b3b3;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-max-width: 150px;
+    -fx-max-height: 30px;
+
+}
+
+.hyperlink-label {
+    -fx-text-fill: #0073e6; /* Culoarea link-ului */
+
+}
+
+.hyperlink-label:hover {
+    -fx-text-fill: #004080;
+}
+
+.birthday-picker{
+    -fx-min-width: 300px;
+    -fx-max-width: 200px;
+    -fx-max-height: 50px;
+}
+
